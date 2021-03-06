@@ -1,0 +1,16 @@
+version: "3"
+
+services:
+  postgres:
+    image: "postgres:11"
+    container_name: "postgres"
+    restart: always
+    ports:
+      - "54320:5432"
+    env_file:
+      - ./local/postgres.local.env # configure postgres
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    
+volumes:
+  dbdata:
